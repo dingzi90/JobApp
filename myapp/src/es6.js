@@ -15,6 +15,7 @@ const hello1 =(name='woniu') => {
   console.log(`hello ${name}`);
 }
 
+//ceshi
 
 hello('imooc ');
 hello1(); */
