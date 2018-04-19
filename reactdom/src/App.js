@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Button} from 'antd-mobile'
+/* import 'antd-mobile/dist/antd-mobile.css' */
  class App extends Component{
    render(){
      const boss = '李云龙';
@@ -29,7 +31,7 @@ import React, { Component } from 'react';
      return (
        <div>
          <h2>一营营长，{this.props.老大}</h2>
-         <button onClick={this.addSolder}>新兵入伍</button>
+         <Button type="primary" onClick={this.addSolder}>新兵入伍</Button>
          <ul>
            {
              this.state.solders.map(v=>{
