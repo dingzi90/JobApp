@@ -1,0 +1,9 @@
+1.使用nodemon启动自动刷新
+例如：nodemon server
+
+2.数据库注册
+mongod --dbpath "D:\Mongo\data\db" --logpath "D:\Mongo\data\log\mongodb.log" --logappend --install --serviceName "MongoDB"
+启动数据库
+net start MongoDB
+
+碰到服务器无名，请以管理员身份启动CMD,然后再执行注册服务语句，这样就可以了
