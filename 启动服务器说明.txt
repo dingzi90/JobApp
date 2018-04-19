@@ -1,0 +1,44 @@
+windows 配置
+
+在windows 中，中将其作为服务来启动就好
+
+多说一句， windows里面不能像ubuntu那样配置， 至少一点 fork 属性，它是没有的
+
+同样的需要创建一些目录
+
+然后执行下面的语句来注册服务
+[python] view plain copy
+
+    mongod --dbpath "D:\data_mongodb\db" --logpath "D:\data_mongodb\db\log\mongodb.log" --logappend --install --serviceName "MongoDB"  
+
+
+服务注册完毕之后，执行下面的语句来启动服务
+
+[python] view plain copy
+
+    net start MongoDB  
+
+
+
+
+可能碰到下面的错误:
+
+[python] view plain copy
+
+    F CONTROL  [main] Failed global initialization: BadValue: dbPath requires an absolute file path with Windows services  
+
+
+需要修改文件路径， 比如 引号的处理， 盘符后面是否忘了 斜线符号
+
+
+
+另外一个比较常见的错误是，注册服务之后，启动过程提示，服务名字无效
+
+net start mongodb
+
+服务名无效
+
+
+解决办法;
+
+以管理员身份启动CMD,然后再执行注册服务语句，这样就可以了

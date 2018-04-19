@@ -78,11 +78,13 @@ import {name2} from './module2'
 
 console.log(name1)
 console.log(name2) */
-/* console.log(
-  [1, 2, 3, 4, 5, 6].map(function(v) {
+/*  console.log(
+[1, 2, 3, 4, 5, 6].map(function(v) {
     return v * 2;
   })
 ); */
+
+
 
 
 
