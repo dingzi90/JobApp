@@ -7,7 +7,7 @@ mongoose.connection.on('connected',function() {
 });
 //类似于mysql的表，mongo里有文档、字段的概念
 const User = mongoose.model('user',new mongoose.Schema({
-    user:{type:String,require:true},
+    user:{type:String,require:true},//类型/必传
     age:{type:Number,require:true}
 }))
 //新增数据
