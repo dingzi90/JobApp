@@ -1,8 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDom from 'react-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import {createStore}  from 'redux'
+import { counter, addGUN, removeGUN} from './index.redux'
+import App from './App'
+
+
+const store = createStore(counter)
+
+function render(){
+    ReactDom.render(<App store={store} addGUN={addGUN} removeGUN={removeGUN} />, document.getElementById('root'))
+}
+render()
+
+store.subscribe(render)
+
