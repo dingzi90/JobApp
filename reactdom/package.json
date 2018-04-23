@@ -38,6 +38,7 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "resolve": "1.6.0",
@@ -92,7 +93,9 @@
     "presets": [
       "react-app"
     ],
-    "plugins":["transform-decorators-legacy"]
+    "plugins": [
+      "transform-decorators-legacy"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
