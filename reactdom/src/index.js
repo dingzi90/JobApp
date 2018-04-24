@@ -5,7 +5,12 @@ import {createStore, applyMiddleware, compose}  from 'redux'
 import thunk  from 'redux-thunk'
 import { Provider} from  'react-redux'
 import { counter } from './index.redux'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import {
+    BrowserRouter,
+    Route,
+    Link,
+    Switch
+} from 'react-router-dom'
 import App from './App'
 
 
@@ -36,9 +41,11 @@ ReactDom.render(
                         <Link to='/san'>三营</Link>
                     </li>
                 </ul>
-                <Route path='/' exact component={App} />
-                <Route path='/erying' component={Erying} />
-                <Route path='/san' component={San} />
+                <Switch>
+                    <Route path='/erying' component={Erying} />
+                    <Route path='/san' component={San} />
+                    <Route path = '/'component = { App } />
+                </Switch>
             </div>
             
         </BrowserRouter>
