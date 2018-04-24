@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
-import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import reducers from './reducer'
 import './config'
@@ -20,9 +20,10 @@ ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route path='/' component={Login}></Route>
-                <Route path='/login' component={Login}></Route>
-                <Route path='/register' component={Register}></Route>
+                <Switch>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/register' component={Register}></Route>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>),
