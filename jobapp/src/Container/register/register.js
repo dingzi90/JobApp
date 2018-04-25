@@ -4,12 +4,24 @@ import { List, InputItem, Radio, Button, WhiteSpace, WingBlank } from 'antd-mobi
 class Register extends React.Component {
     constructor(props){
         super(props)
+        this.hancleRegister = this.hancleRegister.bind(this)
         this.state = {
+            user:'',
+            pwd:'',
+            repeatpwd:'',
             type:'genius'
         }
     }
+    hancleRegister(){
+        console.log(this.state)
+    }
     register(){
-        this.props.history.push('./login')
+        this.props.history.push('/login')
+    }
+    handleChange(key,val){
+        this.setState({
+            [key]:val
+        })
     }
     render() {
         const RadioItem = Radio.RadioItem
@@ -18,18 +30,33 @@ class Register extends React.Component {
                 <Logo></Logo>
                 <WingBlank>
                     <List>
-                        <InputItem>用户名</InputItem>
+                        <InputItem
+                            onChange={v=>this.handleChange('user',v)}
+                        >用户名</InputItem>
                         <WhiteSpace  />
-                        <InputItem>密码</InputItem>
+                        <InputItem
+                            onChange={v => this.handleChange('pwd', v)}
+                            type='password'
+                        >密码</InputItem>
                         <WhiteSpace  />
-                        <InputItem>确认密码</InputItem>
+                        <InputItem
+                            type='password'
+                            onChange={v => this.handleChange('repeatpwd', v)}
+                        >确认密码</InputItem>
                         <WhiteSpace  />
-                        <RadioItem checked={this.state.type === 'genius'}>
-                            牛人
+                    </List>
+                    <WhiteSpace />
+                    <List>
+                        <RadioItem 
+                            checked={this.state.type === 'genius'}
+                            onChange={() => this.handleChange('type','genius')}
+                        >牛人
                         </RadioItem>
                         <WhiteSpace  />
-                        <RadioItem checked={this.state.type === 'boss'}>
-                            Boss
+                        <RadioItem 
+                            checked={this.state.type === 'boss'}
+                            onChange={() => this.handleChange('type', 'boss')}
+                        >Boss
                         </RadioItem>
                         <WhiteSpace  />
                         
@@ -37,7 +64,7 @@ class Register extends React.Component {
                 </WingBlank>
                 <div style={{ height: '2rem' }} />
                 <WingBlank>
-                    <Button className="btn" type='primary'>注册</Button>
+                    <Button className="btn" type='primary' onClick={this.hancleRegister}>注册</Button>
                 </WingBlank>
             </div>
         )

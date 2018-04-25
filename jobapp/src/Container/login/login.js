@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from './../../Component/logo/logo'
-import { List, InputItem, WhiteSpace, Button, WingBlank } from 'antd-mobile';
+import AuthRouter from './../../Component/AuthRouter/AuthRouter';
+import { List, InputItem, Button, WingBlank } from 'antd-mobile';
 import './login.css'
 class Login extends React.Component {
     constructor(props){
@@ -13,11 +14,11 @@ class Login extends React.Component {
     render() {
         return (
             <div>
+                <AuthRouter></AuthRouter>
                 <Logo></Logo>
                 <WingBlank>
                     <List>
                         <InputItem >用户</InputItem>
-                       <WhiteSpace />
                         <InputItem>密码</InputItem>
                     </List>
                 </WingBlank>
