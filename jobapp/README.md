@@ -23,3 +23,12 @@ react-router          路由管理
 
 在package.json中配置，解决跨域问题，服务器9093
 "proxy":"http://localhost:9093"
+
+
+4.服务器启动
+nodemode server
+5.启动react
+npm start
+6.mongo数据库启动
+net start mongodb
+mongo
