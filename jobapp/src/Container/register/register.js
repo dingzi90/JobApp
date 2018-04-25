@@ -1,6 +1,14 @@
 import React from 'react'
 import Logo from './../../Component/logo/logo'
 import { List, InputItem, Radio, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import {connect} from 'react-redux'
+import {regisger} from './../../redux/user.redux'
+import './register.css'
+
+@connect(
+    state => state.user,
+    {regisger}
+)
 class Register extends React.Component {
     constructor(props){
         super(props)
@@ -13,7 +21,8 @@ class Register extends React.Component {
         }
     }
     hancleRegister(){
-        console.log(this.state)
+        this.props.regisger(this.state)
+       // console.log(this.state)
     }
     register(){
         this.props.history.push('/login')
@@ -29,6 +38,7 @@ class Register extends React.Component {
             <div>
                 <Logo></Logo>
                 <WingBlank>
+                    {this.props.msg ? <p className="err">{this.props.msg}</p> : null}
                     <List>
                         <InputItem
                             onChange={v=>this.handleChange('user',v)}
