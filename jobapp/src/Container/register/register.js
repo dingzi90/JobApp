@@ -4,6 +4,7 @@ import { List, InputItem, Radio, Button, WhiteSpace, WingBlank } from 'antd-mobi
 import {connect} from 'react-redux'
 import {regisger} from './../../redux/user.redux'
 import './register.css'
+import {Redirect}  from 'react-router-dom'
 
 @connect(
     state => state.user,
@@ -12,7 +13,7 @@ import './register.css'
 class Register extends React.Component {
     constructor(props){
         super(props)
-        this.hancleRegister = this.hancleRegister.bind(this)
+        this.hancleRegister = this.handleRegister.bind(this)
         this.state = {
             user:'',
             pwd:'',
@@ -20,13 +21,13 @@ class Register extends React.Component {
             type:'genius'
         }
     }
-    hancleRegister(){
+    handleRegister(){
         this.props.regisger(this.state)
        // console.log(this.state)
     }
-    register(){
+/*     register(){
         this.props.history.push('/login')
-    }
+    } */
     handleChange(key,val){
         this.setState({
             [key]:val
@@ -36,6 +37,7 @@ class Register extends React.Component {
         const RadioItem = Radio.RadioItem
         return (
             <div>
+                {this.props.redirectTo ? <Redirect to={this.props.redirectTo}></Redirect>:null}
                 <Logo></Logo>
                 <WingBlank>
                     {this.props.msg ? <p className="err">{this.props.msg}</p> : null}
