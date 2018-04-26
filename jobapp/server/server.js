@@ -1,6 +1,5 @@
 const express = require('express')
 const userRouter = require('./user')
-
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
