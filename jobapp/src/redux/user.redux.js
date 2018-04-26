@@ -3,6 +3,7 @@ import { getRedirectPath} from './../util'
 
 const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 
 const initState = {
     redirectTo:'',
@@ -17,6 +18,8 @@ export function user(state = initState, action){
     switch(action.type){
         case REGISTER_SUCCESS:
             return { ...state, msg: '', redirectTo: getRedirectPath(action.payload), isAuth:true, ...action.payload}
+        case LOGIN_SUCCESS:
+            return { ...state, msg: '', redirectTo: getRedirectPath(action.payload), isAuth: true, ...action.payload }
         case ERROR_MSG:
             return {...state, isAuth:false, msg:action.msg}
         default:
@@ -26,11 +29,32 @@ export function user(state = initState, action){
 
 
 function registerSuccess(data){
-    return {type:REGISTER_SUCCESS, payload:data}
+    return {type:REGISTER_SUCCESS, payload: data}
+}
+
+function loginSuccess(data) {
+    return { type: LOGIN_SUCCESS, payload: data }
 }
 
 function error_Msg(msg){
     return {msg, type:ERROR_MSG}
+}
+
+export function login({user,pwd}){
+    if(!user || !pwd){
+        return error_Msg('请输入用户名密码')
+    }
+    return dispatch => {
+        axios.post('/user/login', { user, pwd})
+            .then(res => {
+                console.log(res)
+                if (res.status === 200 && res.data.code === 0) {//注册成功
+                    dispatch(loginSuccess(res.data.data))
+                } else {//注册失败
+                    dispatch(error_Msg(res.data.msg))
+                }
+            })
+    }
 }
 export function regisger({user,pwd,repeatpwd,type}){
     if(!user || !pwd){
