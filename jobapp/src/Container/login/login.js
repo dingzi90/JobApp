@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from './../../Component/logo/logo'
-import AuthRouter from './../../Component/AuthRouter/AuthRouter';
 import { List, InputItem, Button, WingBlank } from 'antd-mobile';
 import {connect}  from 'react-redux'
 import {login}  from './../../redux/user.redux'
@@ -38,7 +37,6 @@ class Login extends React.Component {
         return (
             <div>
                 {this.props.redirectTo ? <Redirect to={this.props.redirectTo}></Redirect> : null}
-                <AuthRouter></AuthRouter>
                 <Logo></Logo>
                 <WingBlank>
                     {this.props.msg ? <p className="err">{this.props.msg}</p> : null}
@@ -47,6 +45,7 @@ class Login extends React.Component {
                             onChange={v => this.handleChange('user', v)}
                         >用户</InputItem>
                         <InputItem
+                            type="password"
                             onChange={v => this.handleChange('pwd', v)}
                         >密码</InputItem>
                     </List>

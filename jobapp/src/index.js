@@ -7,8 +7,10 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import reducers from './reducer'
 import './config'
+import './index.css'
 import Login from './Container/login/login'
 import Register from './Container/register/register'
+import AuthRouter from './Component/AuthRouter/AuthRouter'
 
 
 const store = createStore(reducers, compose(
@@ -20,6 +22,7 @@ ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
+                <AuthRouter></AuthRouter>
                 <Switch>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/register' component={Register}></Route>

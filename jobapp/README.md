@@ -8,6 +8,7 @@ redux                 数据管理
 redux-thunk
 reeact-redux
 react-router          路由管理
+utility               MD5加密
 
 在package.json中配置
 "plugins": [

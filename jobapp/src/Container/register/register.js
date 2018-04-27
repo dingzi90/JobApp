@@ -45,6 +45,7 @@ class Register extends React.Component {
                 <WingBlank>
                     {this.props.msg ? <p className="err">{this.props.msg}</p> : null}
                     <List>
+                        <WhiteSpace />
                         <InputItem
                             onChange={v=>this.handleChange('user',v)}
                         >用户名</InputItem>
@@ -58,10 +59,10 @@ class Register extends React.Component {
                             type='password'
                             onChange={v => this.handleChange('repeatpwd', v)}
                         >确认密码</InputItem>
-                        <WhiteSpace  />
                     </List>
                     <WhiteSpace />
                     <List>
+                        <WhiteSpace />
                         <RadioItem 
                             checked={this.state.type === 'genius'}
                             onChange={() => this.handleChange('type','genius')}
@@ -73,7 +74,6 @@ class Register extends React.Component {
                             onChange={() => this.handleChange('type', 'boss')}
                         >Boss
                         </RadioItem>
-                        <WhiteSpace  />
                         
                     </List>
                 </WingBlank>
