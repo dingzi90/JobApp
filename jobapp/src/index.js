@@ -11,7 +11,8 @@ import './index.css'
 import Login from './Container/login/login'
 import Register from './Container/register/register'
 import AuthRouter from './Component/AuthRouter/AuthRouter'
-
+import Bossinfo from './Container/bossinfo/bossinfo'
+ 
 
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
@@ -24,6 +25,7 @@ ReactDom.render(
             <div>
                 <AuthRouter></AuthRouter>
                 <Switch>
+                    <Route path='/bossinfo'  component={Bossinfo}></Route>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/register' component={Register}></Route>
                 </Switch>

@@ -53,8 +53,8 @@ class Login extends React.Component {
                 <div style={{ height: '2rem' }} />
                 <WingBlank>
                     <Button className="btn" type='primary' onClick={this.handleLogin}>登陆</Button>
-                        <div style={{ height: '1rem' }} />
-                        <Button className="btn" onClick={this.register}>注册</Button>
+                    <div style={{ height: '1rem' }} />
+                    <Button className="btn" onClick={this.register}>注册</Button>
                 </WingBlank>
             </div>
         )
