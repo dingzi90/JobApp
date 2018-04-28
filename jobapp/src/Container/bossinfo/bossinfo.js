@@ -1,11 +1,17 @@
 import React  from  'react'
 import { NavBar, InputItem, TextareaItem, Button, WingBlank } from 'antd-mobile'
 import AvatarSelector  from './../../Component/avatar-selecor/avatar-selecor'
+import {connect} from 'react-redux'
+import {updata} from './../../redux/user.redux'
+import { Redirect} from 'react-router-dom'
 
 
 
 
-
+@connect(
+    state => state.user,
+    {updata}
+)
 class Bossinfo extends React.Component{
     constructor(props){
         super(props)
@@ -26,6 +32,7 @@ class Bossinfo extends React.Component{
     render(){
         return(
             <div>
+                {this.props.redirectTo ? <Redirect to={this.props.redirectTo}></Redirect>:null}
                 <NavBar mode="dark">Boss完善信息</NavBar>
                 <AvatarSelector 
                     selectAvatar = {(imgName) =>{
@@ -63,7 +70,13 @@ class Bossinfo extends React.Component{
                 </TextareaItem>
                 <div style={{ height: '2rem' }} />
                 <WingBlank>
-                    <Button type='primary'>保存</Button>
+                    <Button 
+                    onClick={() => {
+                        this.props.updata(this.state)
+                    }}
+                    type='primary'>保存  
+                    
+                    </Button>
                 </WingBlank>
             </div>
         )

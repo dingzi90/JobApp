@@ -9,6 +9,7 @@ redux-thunk
 reeact-redux
 react-router          路由管理
 utility               MD5加密
+prop-types            参数验证
 
 在package.json中配置
 "plugins": [
